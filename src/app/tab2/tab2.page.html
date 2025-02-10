@@ -1,17 +1,104 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-title class="ion-text-center">🎮 Filtros de Juegos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Sección de filtros mejorada -->
+  <ion-card class="filtro-card">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">Ajustar Filtros</ion-card-title>
+    </ion-card-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-icon name="game-controller-outline" slot="start"></ion-icon>
+          <ion-label>Género</ion-label>
+          <ion-select [(ngModel)]="filtros.genero">
+            <ion-select-option value="">Todos</ion-select-option>
+            <ion-select-option value="Acción">Acción</ion-select-option>
+            <ion-select-option value="Estrategia">Estrategia</ion-select-option>
+            <ion-select-option value="Simulación">Simulación</ion-select-option>
+            <ion-select-option value="Carreras">Carreras</ion-select-option>
+            <ion-select-option value="Peleas">Peleas</ion-select-option> <!-- Added Fighting Genre -->
+            <ion-select-option value="Supervivencia">Supervivencia</ion-select-option> <!-- Added Survival Genre -->
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="desktop-outline" slot="start"></ion-icon>
+          <ion-label>Plataforma</ion-label>
+          <ion-select [(ngModel)]="filtros.plataforma">
+            <ion-select-option value="">Todas</ion-select-option>
+            <ion-select-option value="PC">PC</ion-select-option>
+            <ion-select-option value="PlayStation">PlayStation</ion-select-option>
+            <ion-select-option value="Xbox">Xbox</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="hourglass-outline" slot="start"></ion-icon>
+          <ion-label>Tiempo Disponible</ion-label>
+          <ion-select [(ngModel)]="filtros.tiempo">
+            <ion-select-option value="">Cualquier tiempo</ion-select-option>
+            <ion-select-option value="Sesión corta">Sesión corta</ion-select-option>
+            <ion-select-option value="Sesión media">Sesión media</ion-select-option>
+            <ion-select-option value="Sesión larga">Sesión larga</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="people-outline" slot="start"></ion-icon>
+          <ion-label>Número de Jugadores</ion-label>
+          <ion-select [(ngModel)]="filtros.jugadores">
+            <ion-select-option value="">Cualquiera</ion-select-option>
+            <ion-select-option value="Un jugador">Un jugador</ion-select-option>
+            <ion-select-option value="Multijugador">Multijugador</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <!-- Botón Aplicar Filtros -->
+      <div class="boton-contenedor">
+        <ion-button class="custom-button" expand="block" color="primary" (click)="aplicarFiltros()">
+          <ion-icon name="search-outline"></ion-icon>
+          Aplicar Filtros
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Lista de juegos filtrados -->
+  <ion-list>
+    <ion-card *ngFor="let juego of juegosFiltrados" class="juego-card">
+      <ion-item lines="none">
+        <ion-thumbnail slot="start">
+          <img [src]="juego.imagen" alt="{{ juego.nombre }}">
+        </ion-thumbnail>
+        <ion-label>
+          <h2 color="primary"><strong>{{ juego.nombre }}</strong></h2>
+          <p>🎮 {{ juego.genero }}</p>
+
+          <ion-chip *ngIf="juego.plataforma.includes('PlayStation')" class="chip-playstation">
+            <ion-icon name="logo-playstation" class="playstation-icon"></ion-icon>
+            <span>PlayStation</span>
+          </ion-chip>
+          
+          <ion-chip *ngIf="juego.plataforma.includes('PC')" class="chip-pc">
+            <ion-icon name="logo-windows" class="pc-icon"></ion-icon>
+            <span>PC</span>
+          </ion-chip>
+          
+          <ion-chip *ngIf="juego.plataforma.includes('Xbox')" class="chip-xbox">
+            <ion-icon name="logo-xbox" class="xbox-icon"></ion-icon>
+            <span>Xbox</span>
+          </ion-chip>
+          
+          <p>⏳ {{ juego.tiempo }} | 👥 {{ juego.jugadores }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+  </ion-list>
 </ion-content>
