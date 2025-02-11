@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!-- Sección de filtros mejorada -->
+ 
   <ion-card class="filtro-card">
     <ion-card-header>
       <ion-card-title class="ion-text-center">Ajustar Filtros</ion-card-title>
@@ -22,8 +22,8 @@
             <ion-select-option value="Estrategia">Estrategia</ion-select-option>
             <ion-select-option value="Simulación">Simulación</ion-select-option>
             <ion-select-option value="Carreras">Carreras</ion-select-option>
-            <ion-select-option value="Peleas">Peleas</ion-select-option> <!-- Added Fighting Genre -->
-            <ion-select-option value="Supervivencia">Supervivencia</ion-select-option> <!-- Added Survival Genre -->
+            <ion-select-option value="Peleas">Peleas</ion-select-option> 
+            <ion-select-option value="Supervivencia">Supervivencia</ion-select-option> 
           </ion-select>
         </ion-item>
 
@@ -60,7 +60,7 @@
         </ion-item>
       </ion-list>
 
-      <!-- Botón Aplicar Filtros -->
+      
       <div class="boton-contenedor">
         <ion-button class="custom-button" expand="block" color="primary" (click)="aplicarFiltros()">
           <ion-icon name="search-outline"></ion-icon>
@@ -70,7 +70,7 @@
     </ion-card-content>
   </ion-card>
 
-  <!-- Lista de juegos filtrados -->
+  
   <ion-list>
     <ion-card *ngFor="let juego of juegosFiltrados" class="juego-card">
       <ion-item lines="none">
