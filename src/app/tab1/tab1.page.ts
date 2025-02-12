@@ -59,7 +59,44 @@ export class Tab1Page {
       jugadores: '1',
       imagen: 'https://store-images.s-microsoft.com/image/apps.44413.65985311967005000.4f51b5e9-febf-4990-8951-33ba59b634c9.924253ef-36b2-4cc0-8bb1-9a97c88d4828'
     },
+    {
+      titulo: 'Call of Duty',
+      categoria: 'Acción',
+      jugadores: 'Multijugador',
+      imagen: 'https://th.bing.com/th/id/OIP.dNyuYksQSSRqvZcCBBWKHQHaFj?rs=1&pid=ImgDetMain'
+    },
+    {
+      titulo: 'Goat Simulator',
+      categoria: 'Simulación',
+      jugadores: '1',
+      imagen: 'https://th.bing.com/th/id/OIP.dFz0_qZHj-j45ZsS8ksUXwHaEK?rs=1&pid=ImgDetMain'
+    },
+    {
+      titulo: 'League of Legends',
+      categoria: 'Estrategia',
+      jugadores: 'Multijugador',
+      imagen: 'https://th.bing.com/th/id/R.56628c89043ea820cdacdb4a39ba1052?rik=RqM7pO%2fnUyGNcQ&pid=ImgRaw&r=0'
+    },
+    {
+      titulo: 'Gears of War 4',
+      categoria: 'Acción',
+      jugadores: 'Multijugador',
+      imagen: 'https://th.bing.com/th/id/OIP.n9j35drkNZOBJ4vc2Ir2ZQHaEK?rs=1&pid=ImgDetMain'
+    },
+    {
+      titulo: 'Forza Horizon 5',
+      categoria: 'Carreras',
+      jugadores: 'Multijugador',
+      imagen: 'https://gameranx.com/wp-content/uploads/2021/08/ForzaHorizon5_KeyArt_Horiz_RGB_Final.jpg'
+    },
+    {
+      titulo: 'Spider-Man 2',
+      categoria: 'Acción',
+      jugadores: '1',
+      imagen: 'https://th.bing.com/th/id/OIP.scHLU-7DtzJJIiD1jnq7YQHaHa?rs=1&pid=ImgDetMain'
+    }
   ];
+
 
   abrirFormulario() {
     this.navCtrl.navigateForward('/agregar-juegos');
